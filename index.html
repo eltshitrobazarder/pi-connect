@@ -2,55 +2,135 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pi Connect</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f2ff;
-      color: #28204b;
-      text-align: center;
-    }
-    header {
-      background: #5424a8;
-      color: white;
-      padding: 25px;
-    }
-    main { padding: 35px 20px; }
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 16px;
-      max-width: 400px;
-      margin: auto;
-    }
-    button {
-      background: #713acb;
-      color: white;
-      border: none;
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-size: 16px;
-      margin-top: 20px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PI CONNECT</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f2efff;
+  color: #24164b;
+  text-align: center;
+}
+
+header {
+  background: #34216b;
+  color: white;
+  padding: 35px 15px;
+}
+
+.logo {
+  color: #f5b82e;
+  font-size: 34px;
+  font-weight: bold;
+}
+
+header p {
+  font-size: 16px;
+}
+
+main {
+  padding: 25px 18px;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  margin: 18px auto;
+  max-width: 450px;
+  box-shadow: 0 3px 12px #0001;
+}
+
+button {
+  background: #f5b82e;
+  color: #24164b;
+  border: none;
+  border-radius: 9px;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #e5a900;
+}
+
+#details {
+  display: none;
+  margin-top: 20px;
+}
+
+.features {
+  text-align: left;
+  line-height: 2;
+}
+
+footer {
+  padding: 20px;
+  color: #777;
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <h1>Pi Connect</h1>
-    <p>Bienvenue dans notre écosystème</p>
-  </header>
-  <main>
-    <div class="card">
-      <h2>Connectons notre communauté</h2>
-      <p>Une application destinée aux utilisateurs de Pi Network.</p>
-      <button onclick="alert('Bienvenue sur Pi Connect !')">
-        Découvrir Pi Connect
-      </button>
+
+<header>
+  <div class="logo">π PI CONNECT</div>
+  <h2>Bienvenue dans notre écosystème</h2>
+  <p>Connectons notre communauté</p>
+</header>
+
+<main>
+
+  <div class="card">
+    <h2>Bienvenue sur Pi Connect</h2>
+
+    <p>
+      Une application destinée aux utilisateurs
+      de Pi Network.
+    </p>
+
+    <button onclick="decouvrir()">
+      Découvrir Pi Connect
+    </button>
+
+    <div id="details">
+      <h3>Notre communauté</h3>
+
+      <p>
+        Découvrez l'écosystème Pi Network
+        et connectez-vous avec notre communauté.
+      </p>
+
+      <div class="features">
+        <p>🌐 Découvrir Pi Network</p>
+        <p>👥 Communauté Pi Connect</p>
+        <p>📢 Actualités et informations</p>
+        <p>🚀 Innovation et technologie</p>
+      </div>
     </div>
-  </main>
-  <footer>© 2026 Pi Connect</footer>
+  </div>
+
+</main>
+
+<footer>
+  PI CONNECT © 2026
+  <p>Ensemble, connectons notre communauté.</p>
+</footer>
+
+<script>
+function decouvrir() {
+  document.getElementById("details").style.display = "block";
+}
+</script>
+
 </body>
 </html>
