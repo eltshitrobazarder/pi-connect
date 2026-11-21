@@ -289,3 +289,26 @@ function rejoindre(event) {
 
 </body>
 </html>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDcY5KLE-D-HAR5F6o17KiKVhrP2EH0Z9M",
+    authDomain: "pi-connect-f2259.firebaseapp.com",
+    projectId: "pi-connect-f2259",
+    storageBucket: "pi-connect-f2259.firebasestorage.app",
+    messagingSenderId: "509918122076",
+    appId: "1:509918122076:web:3eadcf274d24698e901699",
+    measurementId: "G-WXQW26960K"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
