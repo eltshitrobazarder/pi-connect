@@ -4,25 +4,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#34216b">
 <title>PI CONNECT</title>
 
 <style>
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background: #f2efff;
   color: #24164b;
-  text-align: center;
 }
 
 header {
   background: #34216b;
   color: white;
-  padding: 35px 15px;
+  text-align: center;
+  padding: 28px 12px;
 }
 
 .logo {
@@ -31,51 +30,90 @@ header {
   font-weight: bold;
 }
 
-header p {
-  font-size: 16px;
+header p { margin-bottom: 0; }
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+  padding: 12px 5px;
+  background: #24164b;
+}
+
+nav button {
+  background: transparent;
+  color: white;
+  border: 1px solid #7662a8;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+nav button:hover {
+  background: #f5b82e;
+  color: #24164b;
 }
 
 main {
-  padding: 25px 18px;
+  max-width: 700px;
+  margin: auto;
+  padding: 18px;
+}
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: block;
 }
 
 .card {
   background: white;
-  padding: 25px;
+  padding: 23px;
+  margin: 15px 0;
   border-radius: 15px;
-  margin: 18px auto;
-  max-width: 450px;
   box-shadow: 0 3px 12px #0001;
 }
 
-button {
+h2 { color: #34216b; }
+
+.action {
+  display: inline-block;
   background: #f5b82e;
   color: #24164b;
+  text-decoration: none;
   border: none;
+  padding: 13px 18px;
+  margin: 6px 3px;
   border-radius: 9px;
-  padding: 14px 22px;
-  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
 }
 
-button:hover {
-  background: #e5a900;
+input, textarea {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  margin: 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
-#details {
-  display: none;
-  margin-top: 20px;
-}
-
-.features {
-  text-align: left;
-  line-height: 2;
+.notice {
+  background: #f2efff;
+  padding: 13px;
+  border-radius: 9px;
+  line-height: 1.6;
 }
 
 footer {
-  padding: 20px;
-  color: #777;
+  background: #34216b;
+  color: white;
+  text-align: center;
+  padding: 22px;
+  margin-top: 25px;
 }
 </style>
 </head>
@@ -84,51 +122,168 @@ footer {
 
 <header>
   <div class="logo">π PI CONNECT</div>
-  <h2>Bienvenue dans notre écosystème</h2>
-  <p>Connectons notre communauté</p>
+  <h2 style="color:white">Bienvenue dans notre écosystème</h2>
+  <p>Connectons notre communauté Pi Network</p>
 </header>
+
+<nav>
+  <button onclick="showPage('accueil')">Accueil</button>
+  <button onclick="showPage('decouvrir')">Découvrir Pi</button>
+  <button onclick="showPage('communaute')">Communauté</button>
+  <button onclick="showPage('actualites')">Actualités</button>
+</nav>
 
 <main>
 
-  <div class="card">
-    <h2>Bienvenue sur Pi Connect</h2>
-
+<section id="accueil" class="page active">
+  <div class="card" style="text-align:center">
+    <h2>Bienvenue sur PI CONNECT</h2>
     <p>
-      Une application destinée aux utilisateurs
-      de Pi Network.
+      Une plateforme communautaire destinée
+      aux utilisateurs de Pi Network.
+    </p>
+    <button class="action"
+      onclick="showPage('decouvrir')">
+      Découvrir Pi Network
+    </button>
+    <button class="action"
+      onclick="showPage('communaute')">
+      Rejoindre notre espace
+    </button>
+  </div>
+
+  <div class="card">
+    <h2>Notre vision</h2>
+    <p>
+      Rassembler les Pioneers, partager les connaissances
+      et contribuer au développement de notre communauté.
+    </p>
+  </div>
+</section>
+
+<section id="decouvrir" class="page">
+  <div class="card">
+    <h2>Découvrir Pi Network</h2>
+    <p>
+      Pi Network est un projet de cryptomonnaie
+      qui développe un écosystème accessible
+      depuis les appareils mobiles.
+    </p>
+    <p>
+      Découvrez les informations et les ressources
+      directement auprès des sources officielles.
+    </p>
+    <a class="action"
+       href="https://minepi.com/"
+       target="_blank" rel="noopener">
+       Site officiel Pi Network
+    </a>
+    <a class="action"
+       href="https://developers.minepi.com/"
+       target="_blank" rel="noopener">
+       Portail développeurs Pi
+    </a>
+  </div>
+</section>
+
+<section id="communaute" class="page">
+  <div class="card">
+    <h2>Notre communauté</h2>
+    <p>
+      Bienvenue dans l'espace communautaire
+      de PI CONNECT.
     </p>
 
-    <button onclick="decouvrir()">
-      Découvrir Pi Connect
-    </button>
+    <form onsubmit="rejoindre(event)">
+      <label for="pseudo">Votre pseudonyme</label>
+      <input id="pseudo" type="text"
+        placeholder="Entrez votre pseudonyme"
+        required maxlength="30">
 
-    <div id="details">
-      <h3>Notre communauté</h3>
+      <label for="message">Votre message</label>
+      <textarea id="message" rows="3"
+        placeholder="Présentez-vous à la communauté"
+        required maxlength="300"></textarea>
 
-      <p>
-        Découvrez l'écosystème Pi Network
-        et connectez-vous avec notre communauté.
-      </p>
+      <button class="action" type="submit">
+        Envoyer ma présentation
+      </button>
+    </form>
 
-      <div class="features">
-        <p>🌐 Découvrir Pi Network</p>
-        <p>👥 Communauté Pi Connect</p>
-        <p>📢 Actualités et informations</p>
-        <p>🚀 Innovation et technologie</p>
-      </div>
-    </div>
+    <p id="confirmation" class="notice"
+       style="display:none"></p>
+
+    <p class="notice">
+      Démonstration : votre présentation n'est pas
+      envoyée à un serveur. Un système communautaire
+      partagé sera ajouté ultérieurement.
+    </p>
   </div>
+</section>
+
+<section id="actualites" class="page">
+  <div class="card">
+    <h2>Actualités et informations</h2>
+    <p>
+      Retrouvez les informations officielles
+      concernant l'écosystème Pi Network.
+    </p>
+
+    <a class="action"
+       href="https://minepi.com/blog/"
+       target="_blank" rel="noopener">
+       Consulter le blog officiel
+    </a>
+
+    <a class="action"
+       href="https://minepi.com/"
+       target="_blank" rel="noopener">
+       En savoir plus
+    </a>
+  </div>
+</section>
 
 </main>
 
 <footer>
-  PI CONNECT © 2026
+  <h3>π PI CONNECT</h3>
   <p>Ensemble, connectons notre communauté.</p>
+  <p>© 2026 PI CONNECT</p>
+  <small>Projet communautaire indépendant, non officiel.</small>
 </footer>
 
 <script>
-function decouvrir() {
-  document.getElementById("details").style.display = "block";
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(function(page) {
+    page.classList.remove('active');
+  });
+
+  const selected = document.getElementById(pageId);
+
+  if (selected) {
+    selected.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+}
+
+function rejoindre(event) {
+  event.preventDefault();
+
+  const pseudo = document.getElementById('pseudo').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!pseudo || !message) return;
+
+  const confirmation = document.getElementById('confirmation');
+
+  confirmation.textContent =
+    "Merci " + pseudo +
+    " ! Votre présentation a été préparée. " +
+    "Elle n'a pas encore été publiée en ligne.";
+
+  confirmation.style.display = 'block';
+
+  event.target.reset();
 }
 </script>
 
